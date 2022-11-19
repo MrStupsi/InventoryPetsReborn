@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "inventorypetsreborn:sheep_pet"
+  },
+  "pattern": [
+    "OFO",
+    "ODO",
+    "OGO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "F": {
+      "item": "minecraft:wheat"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot" 
+    },
+    "O": {
+      "tag": "minecraft:wool"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "inventorypetsreborn:enderchest_pet"
+  },
+  "pattern": [
+    "OOO",
+    "ODO",
+    "OGO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "O": {
+      "item": "inventorypetsreborn:ender_nugget"
+    }
+  }
+}

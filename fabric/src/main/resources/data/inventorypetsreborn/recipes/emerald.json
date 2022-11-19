@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {"item":  "inventorypetsreborn:emerald_nugget"},
+        {"item":  "inventorypetsreborn:emerald_nugget"},
+        {"item":  "inventorypetsreborn:emerald_nugget"},
+        {"item":  "inventorypetsreborn:emerald_nugget"},
+        {"item":  "inventorypetsreborn:emerald_nugget"},
+        {"item":  "inventorypetsreborn:emerald_nugget"},
+        {"item":  "inventorypetsreborn:emerald_nugget"},
+        {"item":  "inventorypetsreborn:emerald_nugget"},
+        {"item":  "inventorypetsreborn:emerald_nugget"}
+    ],
+    "result": {
+        "item": "minecraft:emerald",
+        "count": 1
+    }
+}

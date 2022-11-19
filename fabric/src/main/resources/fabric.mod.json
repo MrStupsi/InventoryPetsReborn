@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "inventorypetsreborn",
+  "version": "${version}",
+  "name": "Inventorypetsreborn",
+  "description": "InventoryPets Mod for newer versions of Minecraft",
+  "authors": [
+    "MrStupsi"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/inventorypetsreborn/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "de.mrstupsi.inventorypetsreborn.client.InventoryPetsRebornClient"
+    ],
+    "main": [
+      "de.mrstupsi.inventorypetsreborn.InventoryPetsReborn"
+    ]
+  },
+  "mixins": [
+    "inventorypetsreborn.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.10",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}

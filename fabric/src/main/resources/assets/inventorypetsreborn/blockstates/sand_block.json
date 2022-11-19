@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": [
+         { "model": "inventorypets:block/sand_block" }
+         ]
+    }
+}

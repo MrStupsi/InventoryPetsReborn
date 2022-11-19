@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "inventorypetsreborn:craftingtable_pet"
+  },
+  "pattern": [
+    "OFO",
+    "ODO",
+    "OGO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "F": {
+      "tag": "minecraft:logs"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "O": {
+      "tag": "minecraft:planks"
+    }
+  }
+}

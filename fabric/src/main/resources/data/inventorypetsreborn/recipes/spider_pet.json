@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "inventorypetsreborn:spider_pet"
+  },
+  "pattern": [
+    "OFO",
+    "ODO",
+    "OGO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "F": {
+      "tag": "inventorypetsreborn:raw_meat"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "O": {
+      "item": "inventorypetsreborn:coal_nugget"
+    }
+  }
+}

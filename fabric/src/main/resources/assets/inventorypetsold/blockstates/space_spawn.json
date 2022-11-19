@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": [
+         { "model": "inventorypets:block/space_spawn" }
+         ]
+    }
+}

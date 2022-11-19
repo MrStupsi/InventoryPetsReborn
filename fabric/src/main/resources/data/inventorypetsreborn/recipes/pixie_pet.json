@@ -1,0 +1,29 @@
+{
+  "result": {
+    "item": "inventorypetsreborn:pixie_pet"
+  },
+  "pattern": [
+    "OFO",
+    "EDE",
+    "OGO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "F": {
+      "item": "inventorypetsreborn:emerald_nugget"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "O": {
+      "item": "minecraft:gold_ingot"
+ 
+    }
+  }
+}
