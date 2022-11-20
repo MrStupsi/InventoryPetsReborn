@@ -1,0 +1,14 @@
+{
+    "dubstep": {
+        "inventorypetsreborn": "master",
+        "sounds": [
+            {"name": "inventorypetsreborn:dubstep", "stream": false}
+        ]
+    },
+    "illuminati": {
+        "inventorypetsreborn": "master",
+        "sounds": [
+            {"name": "inventorypetsreborn:illuminati", "stream": false}
+        ]
+    }
+}

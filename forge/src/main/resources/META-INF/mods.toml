@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[43,)"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "inventorypetsreborn"
+version = "${file.jarVersion}"
+displayName = "InventoryPetsReborn"
+authors = "MrStupsi"
+description = '''
+InventoryPets Mod for newer versions of Minecraft
+'''
+
+[[dependencies.inventorypetsreborn]]
+modId = "forge"
+mandatory = true #mandatory
+versionRange = "[43,)" #mandatory
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.inventorypetsreborn]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.2,1.20)"
+ordering = "NONE"
+side = "BOTH"

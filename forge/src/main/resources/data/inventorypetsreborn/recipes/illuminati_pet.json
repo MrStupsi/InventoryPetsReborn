@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "inventorypetsreborn:illuminati_pet"
+  },
+  "pattern": [
+    "OOO",
+    "ODO",
+    "OGO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:nether_star"
+    },
+    "O": {
+      "item": "inventorypetsreborn:emerald_nugget"
+    }
+  }
+}

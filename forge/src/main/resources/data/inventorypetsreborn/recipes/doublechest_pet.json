@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "inventorypetsreborn:doublechest_pet"
+  },
+  "pattern": [
+    "OFO",
+    "ODO",
+    "OGO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "F": {
+      "item": "minecraft:gold_nugget"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "O": {
+      "tag": "minecraft:planks"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "result": {
+    "item": "inventorypetsreborn:mooshroom_pet"
+  },
+  "pattern": [
+    "OFB",
+    "ODB",
+    "OGB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "minecraft:iron_nugget" 
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "F": {
+      "item": "minecraft:red_mushroom"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "O": {
+      "item": "minecraft:redstone"
+    }
+  }
+}
