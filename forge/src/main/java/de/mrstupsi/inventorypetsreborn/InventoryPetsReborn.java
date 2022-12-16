@@ -1,7 +1,12 @@
 package de.mrstupsi.inventorypetsreborn;
 
+import de.mrstupsi.inventorypetsreborn.block.CloudBlock;
+import de.mrstupsi.inventorypetsreborn.block.CloudSpawn;
 import de.mrstupsi.inventorypetsreborn.item.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -13,10 +18,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod("inventorypetsreborn")
 public class InventoryPetsReborn {
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "inventorypetsreborn");
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "inventorypetsreborn");
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, "inventorypetsreborn");
 
     public InventoryPetsReborn() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        BLOCKS.register("cloud_block", () -> CloudBlock.INSTANCE);
+        BLOCKS.register("cloud_spawn", () -> CloudSpawn.INSTANCE);
         ITEMS.register("blaze_pet", () -> BlazePet.INSTANCE);
         ITEMS.register("chest_pet", () -> ChestPet.INSTANCE);
         ITEMS.register("chicken_pet", () -> ChickenPet.INSTANCE);
@@ -47,7 +56,10 @@ public class InventoryPetsReborn {
         ITEMS.register("ender_nugget", () -> EnderNugget.INSTANCE);
         ITEMS.register("lapis_nugget", () -> LapisNugget.INSTANCE);
         ITEMS.register("obsidian_nugget", () -> ObsidianNugget.INSTANCE);
+        //FEATURES.register("cloud_dungeon", () -> null);
+        BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
+        FEATURES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

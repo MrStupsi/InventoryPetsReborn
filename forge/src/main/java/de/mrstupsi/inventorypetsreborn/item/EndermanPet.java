@@ -27,6 +27,7 @@ public class EndermanPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(20),
                 4, 8,
+                PetType.MOB,
                 ObsidianNugget.INSTANCE
         );
         MinecraftForge.EVENT_BUS.register(this);
@@ -52,7 +53,7 @@ public class EndermanPet extends InventoryPet {
         tooltip.add(Component.translatable("tooltip.enderman.teleport"));
         tooltip.add(Component.translatable("tooltip.enderman.autoteleport"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.obsidian_nugget")));
-        tooltip.add(Component.translatable("tooltip.mob"));
+        tooltip.add(getType().getTooltip());
     }
 
     private boolean teleport(Player p) {

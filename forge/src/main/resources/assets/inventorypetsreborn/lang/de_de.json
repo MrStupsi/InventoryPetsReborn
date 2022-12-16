@@ -67,7 +67,7 @@
     "tooltip.mob": "§cMob",
     "tooltip.neutral": "§eNeutral",
     "tooltip.friendly": "§aFriedlich",
-    "tooltip.legendary": "§dLegendär",
+    "tooltip.legendary": "§6Legendär",
     "tooltip.favoritefood": "§7Lieblingsessen: ",
     "tooltip.raw_meat": "Rohes Fleisch",
     "tooltip.cooked_meat": "Gebratenes Fleisch",

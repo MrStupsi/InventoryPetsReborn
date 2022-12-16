@@ -22,6 +22,7 @@ public class ChickenPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(30),
                 5, 10,
+                PetType.FRIENDLY,
                 Items.WHEAT_SEEDS
         );
     }
@@ -47,6 +48,6 @@ public class ChickenPet extends InventoryPet {
         tooltip.add(Component.translatable("tooltip.chicken.speed"));
         tooltip.add(Component.translatable("tooltip.chicken.giveseggs"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.wheat_seeds")));
-        tooltip.add(Component.translatable("tooltip.friendly"));
+        tooltip.add(getType().getTooltip());
     }
 }

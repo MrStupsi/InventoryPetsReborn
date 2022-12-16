@@ -22,6 +22,7 @@ public class GhastPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(25),
                 5, 10,
+                PetType.MOB,
                 Items.BLAZE_POWDER
         );
     }
@@ -50,6 +51,6 @@ public class GhastPet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.ghast.fireball"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.blaze_powder")));
-        tooltip.add(Component.translatable("tooltip.mob"));
+        tooltip.add(getType().getTooltip());
     }
 }

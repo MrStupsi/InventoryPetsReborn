@@ -22,6 +22,7 @@ public class MagmaCubePet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(30),
                 5, 10,
+                PetType.MOB,
                 Items.QUARTZ
         );
     }
@@ -43,6 +44,6 @@ public class MagmaCubePet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.magmacube.fireresistance"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.quartz")));
-        tooltip.add(Component.translatable("tooltip.mob"));
+        tooltip.add(getType().getTooltip());
     }
 }

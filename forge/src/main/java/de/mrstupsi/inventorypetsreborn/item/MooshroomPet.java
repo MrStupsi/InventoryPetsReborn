@@ -20,6 +20,7 @@ public class MooshroomPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(30),
                 5, 10,
+                PetType.FRIENDLY,
                 Items.WHEAT
         );
     }
@@ -71,6 +72,6 @@ public class MooshroomPet extends InventoryPet {
         tooltip.add(Component.translatable("tooltip.mooshroom.growplants"));
         tooltip.add(Component.translatable("tooltip.mooshroom.fillsbowls"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.wheat")));
-        tooltip.add(Component.translatable("tooltip.friendly"));
+        tooltip.add(getType().getTooltip());
     }
 }

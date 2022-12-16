@@ -17,6 +17,7 @@ public class LootPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(60),
                 10, 20,
+                PetType.NEUTRAL,
                 Items.GOLD_NUGGET
         );
     }
@@ -25,6 +26,6 @@ public class LootPet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.loot.double_ores"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.gold_nugget")));
-        tooltip.add(Component.translatable("tooltip.neutral"));
+        tooltip.add(getType().getTooltip());
     }
 }

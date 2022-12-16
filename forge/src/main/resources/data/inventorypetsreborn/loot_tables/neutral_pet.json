@@ -1,0 +1,15 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {"type": "minecraft:item", "name": "inventorypetsreborn:chest_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:craftingtable_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:doublechest_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:furnace_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:loot_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:pixie_pet"}
+      ]
+    }
+  ]
+}

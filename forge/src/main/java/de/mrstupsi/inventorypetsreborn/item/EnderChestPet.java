@@ -22,6 +22,7 @@ public class EnderChestPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(15),
                 3, 6,
+                PetType.NEUTRAL,
                 EnderNugget.INSTANCE
         );
     }
@@ -50,6 +51,6 @@ public class EnderChestPet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.enderchest.open"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.ender_nugget")));
-        tooltip.add(Component.translatable("tooltip.neutral"));
+        tooltip.add(getType().getTooltip());
     }
 }

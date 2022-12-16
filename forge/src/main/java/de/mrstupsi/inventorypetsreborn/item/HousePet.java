@@ -22,6 +22,7 @@ public class HousePet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(20),
                 4, 8,
+                PetType.NEUTRAL,
                 EnderNugget.INSTANCE
         );
     }
@@ -58,6 +59,6 @@ public class HousePet extends InventoryPet {
         tooltip.add(Component.translatable("tooltip.house.teleport"));
         tooltip.add(Component.translatable("tooltip.house.setspawn"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.ender_nugget")));
-        tooltip.add(Component.translatable("tooltip.neutral"));
+        tooltip.add(getType().getTooltip());
     }
 }

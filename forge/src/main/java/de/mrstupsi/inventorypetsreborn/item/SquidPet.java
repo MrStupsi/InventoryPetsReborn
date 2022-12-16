@@ -22,6 +22,7 @@ public class SquidPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(30),
                 5, 10,
+                PetType.FRIENDLY,
                 Items.COD
         );
     }
@@ -43,6 +44,6 @@ public class SquidPet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.squid.conduit_power"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.raw_cod")));
-        tooltip.add(Component.translatable("tooltip.friendly"));
+        tooltip.add(getType().getTooltip());
     }
 }

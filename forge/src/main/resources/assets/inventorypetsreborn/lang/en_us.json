@@ -67,7 +67,7 @@
     "tooltip.mob": "§cMob",
     "tooltip.neutral": "§eNeutral",
     "tooltip.friendly": "§aFriendly",
-    "tooltip.legendary": "§dLegendary",
+    "tooltip.legendary": "§6Legendary",
     "tooltip.favoritefood": "§7Favorite Food: ",
     "tooltip.raw_meat": "Raw Meat",
     "tooltip.cooked_meat": "Cooked Meat",

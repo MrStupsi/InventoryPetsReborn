@@ -1,7 +1,7 @@
 {
     "variants": {
         "": [
-         { "model": "inventorypets:block/cloud_block" }
-         ]
+            {"model": "inventorypets:block/cloud_block"}
+        ]
     }
 }

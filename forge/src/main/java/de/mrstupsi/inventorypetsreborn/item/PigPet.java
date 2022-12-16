@@ -22,6 +22,7 @@ public class PigPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(20),
                 4, 8,
+                PetType.FRIENDLY,
                 Items.CARROT
         );
     }
@@ -48,6 +49,6 @@ public class PigPet extends InventoryPet {
         tooltip.add(Component.translatable("tooltip.pig.removespoisinouseffects"));
         tooltip.add(Component.translatable("tooltip.pig.givesporkchop"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.carrot")));
-        tooltip.add(Component.translatable("tooltip.friendly"));
+        tooltip.add(getType().getTooltip());
     }
 }

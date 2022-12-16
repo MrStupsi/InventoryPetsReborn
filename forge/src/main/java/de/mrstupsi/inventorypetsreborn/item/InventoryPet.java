@@ -2,6 +2,7 @@ package de.mrstupsi.inventorypetsreborn.item;
 
 import com.google.common.collect.Lists;
 import de.mrstupsi.inventorypetsreborn.Tick;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
@@ -20,17 +21,15 @@ public class InventoryPet extends Item {
     };
     private final int minDamageToRepair;
     private final int repair;
+    private final PetType type;
     private final List<Item> foods;
 
-    public InventoryPet(Properties settings, int minDamageToRepair, int repair, Item... foods) {
+    public InventoryPet(Properties settings, int minDamageToRepair, int repair, PetType type, Item... foods) {
         super(settings.tab(INVENTORY_PETS_GROUP));
         this.minDamageToRepair = minDamageToRepair;
         this.repair = repair;
+        this.type = type;
         this.foods = Lists.newArrayList(foods);
-    }
-
-    public InventoryPet(Properties settings) {
-        this(settings, 0, 0);
     }
 
     @Override
@@ -50,6 +49,10 @@ public class InventoryPet extends Item {
                 }
             }
         }
+    }
+
+    public PetType getType() {
+        return type;
     }
 
     public static boolean isActive(ItemStack is) {
@@ -84,5 +87,26 @@ public class InventoryPet extends Item {
             }
         }
         return -1;
+    }
+
+    public static enum PetTag {
+        OVERWORLD, NETHER, END, COMMON, LEGENDARY;
+    }
+
+    public static enum PetType {
+        NEUTRAL(Component.translatable("tooltip.friendly")),
+        MOB(Component.translatable("tooltip.mob")),
+        FRIENDLY(Component.translatable("tooltip.friendly")),
+        LEGENDARY(Component.translatable("tooltip.legendary"));
+
+        private Component tooltip;
+
+        PetType(Component tooltip) {
+            this.tooltip = tooltip;
+        }
+
+        public Component getTooltip() {
+            return tooltip;
+        }
     }
 }

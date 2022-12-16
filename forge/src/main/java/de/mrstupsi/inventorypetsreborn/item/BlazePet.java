@@ -22,6 +22,7 @@ public class BlazePet extends InventoryPet {
         super(
                 new Item.Properties().rarity(Rarity.COMMON).durability(30),
                 5, 10,
+                PetType.MOB,
                 Items.QUARTZ
         );
         MinecraftForge.EVENT_BUS.register(this);
@@ -45,7 +46,7 @@ public class BlazePet extends InventoryPet {
         tooltip.add(Component.translatable("tooltip.blaze.strength"));
         tooltip.add(Component.translatable("tooltip.blaze.firedamage"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.quartz")));
-        tooltip.add(Component.translatable("tooltip.mob"));
+        tooltip.add(getType().getTooltip());
     }
 
     @SubscribeEvent

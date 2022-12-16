@@ -22,6 +22,7 @@ public class MilkaPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(30),
                 5, 10,
+                PetType.FRIENDLY,
                 Items.WHEAT
         );
     }
@@ -58,6 +59,6 @@ public class MilkaPet extends InventoryPet {
         tooltip.add(Component.translatable("tooltip.milka.regeneration"));
         tooltip.add(Component.translatable("tooltip.milka.fillsbuckets"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.wheat")));
-        tooltip.add(Component.translatable("tooltip.friendly"));
+        tooltip.add(getType().getTooltip());
     }
 }

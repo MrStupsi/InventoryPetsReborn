@@ -29,7 +29,8 @@ public class SilverfishPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(200),
                 40, 80,
-                Items.GUNPOWDER
+                PetType.MOB,
+                Items.COBBLESTONE
         );
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -73,7 +74,7 @@ public class SilverfishPet extends InventoryPet {
         tooltip.add(Component.translatable("tooltip.silverfish.suffocationimmunity"));
         tooltip.add(Component.translatable("tooltip.silverfish.walkthroughwall"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.cobblestone")));
-        tooltip.add(Component.translatable("tooltip.mob"));
+        tooltip.add(getType().getTooltip());
     }
 
     @SubscribeEvent

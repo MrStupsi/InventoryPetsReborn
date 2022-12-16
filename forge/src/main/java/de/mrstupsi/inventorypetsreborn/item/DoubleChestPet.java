@@ -29,6 +29,7 @@ public class DoubleChestPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(15),
                 3, 6,
+                PetType.NEUTRAL,
                 Items.         ACACIA_LOG, Items.         BIRCH_LOG, Items.         DARK_OAK_LOG, Items.         JUNGLE_LOG,
                 Items.STRIPPED_ACACIA_LOG, Items.STRIPPED_BIRCH_LOG, Items.STRIPPED_DARK_OAK_LOG, Items.STRIPPED_JUNGLE_LOG,
                 Items.         MANGROVE_LOG, Items.         OAK_LOG, Items.         SPRUCE_LOG, Items.         CRIMSON_STEM,
@@ -115,6 +116,6 @@ public class DoubleChestPet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.doublechest.open"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.logs")));
-        tooltip.add(Component.translatable("tooltip.neutral"));
+        tooltip.add(getType().getTooltip());
     }
 }

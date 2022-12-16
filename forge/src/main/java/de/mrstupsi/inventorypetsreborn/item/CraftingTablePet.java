@@ -24,6 +24,7 @@ public class CraftingTablePet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(20),
                 4, 8,
+                PetType.NEUTRAL,
                 Items.ACACIA_PLANKS, Items.BIRCH_PLANKS, Items.DARK_OAK_PLANKS, Items.JUNGLE_PLANKS,
                 Items.MANGROVE_PLANKS, Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.CRIMSON_PLANKS,
                 Items.WARPED_PLANKS
@@ -59,6 +60,6 @@ public class CraftingTablePet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.craftingtable.open"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.planks")));
-        tooltip.add(Component.translatable("tooltip.neutral"));
+        tooltip.add(getType().getTooltip());
     }
 }

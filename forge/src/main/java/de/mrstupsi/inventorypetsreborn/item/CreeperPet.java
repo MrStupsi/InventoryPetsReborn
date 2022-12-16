@@ -24,6 +24,7 @@ public class CreeperPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(20),
                 4, 8,
+                PetType.MOB,
                 Items.GUNPOWDER
         );
         MinecraftForge.EVENT_BUS.register(this);
@@ -49,7 +50,7 @@ public class CreeperPet extends InventoryPet {
         tooltip.add(Component.translatable("tooltip.creeper.explode"));
         tooltip.add(Component.translatable("tooltip.creeper.explosionresistance"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.gunpowder")));
-        tooltip.add(Component.translatable("tooltip.mob"));
+        tooltip.add(getType().getTooltip());
     }
 
     @SubscribeEvent

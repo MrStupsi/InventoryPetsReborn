@@ -28,6 +28,7 @@ public class EnchantingTablePet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(10),
                 4, 6,
+                PetType.NEUTRAL,
                 LapisNugget.INSTANCE
         );
     }
@@ -98,6 +99,6 @@ public class EnchantingTablePet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.enchantingtable.open"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.lapis_nugget")));
-        tooltip.add(Component.translatable("tooltip.neutral"));
+        tooltip.add(getType().getTooltip());
     }
 }

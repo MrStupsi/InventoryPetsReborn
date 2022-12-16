@@ -22,6 +22,7 @@ public class SpiderPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(30),
                 5, 10,
+                PetType.MOB,
                 Items.BEEF, Items.CHICKEN, Items.MUTTON, Items.RABBIT, Items.PORKCHOP
         );
     }
@@ -48,6 +49,6 @@ public class SpiderPet extends InventoryPet {
         tooltip.add(Component.translatable("tooltip.spider.wallclimb"));
         tooltip.add(Component.translatable("tooltip.spider.givesstring"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.raw_meat")));
-        tooltip.add(Component.translatable("tooltip.mob"));
+        tooltip.add(getType().getTooltip());
     }
 }

@@ -27,6 +27,7 @@ public class FurnacePet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(40),
                 15, 20,
+                PetType.NEUTRAL,
                 Items.COAL
         );
     }
@@ -61,7 +62,7 @@ public class FurnacePet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.furnace.smelt"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.coal")));
-        tooltip.add(Component.translatable("tooltip.neutral"));
+        tooltip.add(getType().getTooltip());
     }
 
     private Optional<SmeltingRecipe> getRecipe(Level w, ItemStack is) {

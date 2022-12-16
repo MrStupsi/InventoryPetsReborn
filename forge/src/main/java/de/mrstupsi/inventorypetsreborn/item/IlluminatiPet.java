@@ -25,6 +25,7 @@ public class IlluminatiPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(3),
                 2, 3,
+                PetType.LEGENDARY,
                 EmeraldNugget.INSTANCE
         );
     }
@@ -94,6 +95,6 @@ public class IlluminatiPet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.illuminati.spawnitem"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.emerald_nugget")));
-        tooltip.add(Component.translatable("tooltip.legendary"));
+        tooltip.add(getType().getTooltip());
     }
 }

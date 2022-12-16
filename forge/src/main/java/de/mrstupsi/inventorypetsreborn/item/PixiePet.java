@@ -16,6 +16,7 @@ public class PixiePet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(80),
                 15, 30,
+                PetType.NEUTRAL,
                 EmeraldNugget.INSTANCE
         );
     }
@@ -24,6 +25,6 @@ public class PixiePet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.pixie.double_exp"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.emerald_nugget")));
-        tooltip.add(Component.translatable("tooltip.neutral"));
+        tooltip.add(getType().getTooltip());
     }
 }

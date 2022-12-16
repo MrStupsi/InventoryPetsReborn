@@ -22,6 +22,7 @@ public class IronGolemPet extends InventoryPet {
         super(
                 new Properties().rarity(Rarity.COMMON).durability(20),
                 4, 8,
+                PetType.FRIENDLY,
                 Items.IRON_INGOT
         );
     }
@@ -45,6 +46,6 @@ public class IronGolemPet extends InventoryPet {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
         tooltip.add(Component.translatable("tooltip.irongolem.absorbtion"));
         tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.iron_ingot")));
-        tooltip.add(Component.translatable("tooltip.friendly"));
+        tooltip.add(getType().getTooltip());
     }
 }
