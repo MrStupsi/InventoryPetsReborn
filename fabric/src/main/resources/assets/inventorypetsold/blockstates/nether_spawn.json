@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "": [
-         { "model": "inventorypets:block/nether_spawn" }
-         ]
-    }
-}

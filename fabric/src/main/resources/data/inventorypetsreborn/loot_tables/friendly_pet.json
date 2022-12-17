@@ -1,0 +1,17 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {"type": "minecraft:item", "name": "inventorypetsreborn:chicken_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:cow_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:irongolem_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:milka_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:mooshroom_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:pig_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:sheep_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:squid_pet"}
+      ]
+    }
+  ]
+}

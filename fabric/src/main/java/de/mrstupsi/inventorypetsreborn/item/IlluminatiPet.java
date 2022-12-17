@@ -97,7 +97,7 @@ public class IlluminatiPet extends InventoryPet {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.illuminati_pet.spawnitem"));
+        tooltip.add(Text.translatable("tooltip.illuminati.spawnitem"));
         tooltip.add(Text.translatable("tooltip.favoritefood").append(Text.translatable("tooltip.emerald_nugget")));
         tooltip.add(Text.translatable("tooltip.legendary"));
     }

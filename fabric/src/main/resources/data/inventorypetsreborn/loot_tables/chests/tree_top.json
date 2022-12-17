@@ -1,0 +1,84 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "inventorypetsreborn:friendly_pet",
+          "weight": 10.0
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "inventorypetsreborn:legendary_pet",
+          "weight": 1.0
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "inventorypetsreborn:mob_pet",
+          "weight": 8.0
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "inventorypetsreborn:neutral_pet",
+          "weight": 4.0
+        }
+      ]
+    },
+    {
+      "rolls": 10,
+      "bonus_rolls": 4,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:oak_leaves",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 5
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wheat",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:melon_slice",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 6,
+                "max": 9
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "inventorypetsreborn:nuggets"
+        }
+      ]
+    }
+  ]
+}

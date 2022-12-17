@@ -1,0 +1,16 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {"type": "minecraft:item", "name": "inventorypetsreborn:blaze_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:creeper_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:enderman_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:ghast_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:magmacube_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:silverfish_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:spider_pet"}
+      ]
+    }
+  ]
+}
