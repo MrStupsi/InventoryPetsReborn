@@ -54,7 +54,7 @@ public class ChestPet extends InventoryPet {
             }
             if (!world.isClient) {
                 DefaultedList<ItemStack> items = DefaultedList.ofSize(9 * 3, ItemStack.EMPTY);
-                NbtCompound nbt = is.getNbt();
+                NbtCompound nbt = is.getOrCreateNbt();
                 if (!nbt.contains("chest_pet")) {
                     nbt.put("chest_pet", new NbtCompound());
                 }
@@ -69,7 +69,7 @@ public class ChestPet extends InventoryPet {
                 SimpleInventory inv = new SimpleInventory(itemArray);
                 inv.addListener(inventory -> {
                     ItemStack is2 = hand == Hand.MAIN_HAND ? user.getMainHandStack() : user.getOffHandStack();
-                    NbtCompound nbt2 = is2.getNbt();
+                    NbtCompound nbt2 = is2.getOrCreateNbt();
                     if (!nbt2.contains("chest_pet")) return;
                     NbtCompound chest_pet2 = nbt2.getCompound("chest_pet");
                     if (!chest_pet2.contains("id")) return;
