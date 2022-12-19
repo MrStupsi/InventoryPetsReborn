@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "inventorypets:pet_house"
+  },
+  "pattern": [
+    "OFO",
+    "ODO",
+    "OGO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "F": {
+      "item": "inventorypets:nugget_ender"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "O": {
+      "tag": "minecraft:planks"
+    }
+  }
+}

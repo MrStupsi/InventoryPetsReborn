@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "inventorypets:pet_blaze"
+  },
+  "pattern": [
+    "OFO",
+    "ONO",
+    "OGO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "minecraft:quartz"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "minecraft:diamond"
+    },
+    "O": {
+      "item": "minecraft:gold_nugget"
+    }
+  }
+}
