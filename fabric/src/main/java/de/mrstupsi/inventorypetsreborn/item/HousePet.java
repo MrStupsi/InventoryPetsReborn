@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FireballEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -42,17 +43,18 @@ public class HousePet extends InventoryPet {
                 else user.getInventory().offHand.set(0, is);
             }
             if (!world.isClient) {
+                ServerPlayerEntity spe = (ServerPlayerEntity) user;
                 if (user.isSneaking()) {
-                    user.setSleepingPosition(user.getBlockPos());
-                } else if (user.getSleepingPosition().isPresent()) {
-                    BlockPos pos = user.getSleepingPosition().get();
+                    spe.setSpawnPoint(spe.world.getRegistryKey(), spe.getBlockPos(), spe.limbAngle, false, true);
+                } else if (spe.getSpawnPointPosition() != null) {
+                    BlockPos pos = spe.getSpawnPointPosition();
                     double x = user.getX();
                     double y = user.getY();
                     double z = user.getZ();
-                    if (user.teleport(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, false)) {
-                        world.emitGameEvent(GameEvent.TELEPORT, user.getPos(), GameEvent.Emitter.of(user));
+                    if (spe.teleport(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, false)) {
+                        world.emitGameEvent(GameEvent.TELEPORT, spe.getPos(), GameEvent.Emitter.of(spe));
                         world.playSound(null, x, y, z, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                        user.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.0F, 1.0F);
+                        spe.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.0F, 1.0F);
                     }
                 }
             }

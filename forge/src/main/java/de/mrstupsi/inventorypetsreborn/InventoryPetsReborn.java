@@ -38,6 +38,7 @@ public class InventoryPetsReborn {
         ITEMS.register("enderman_pet", () -> EndermanPet.INSTANCE);
         ITEMS.register("furnace_pet", () -> FurnacePet.INSTANCE);
         ITEMS.register("ghast_pet", () -> GhastPet.INSTANCE);
+        ITEMS.register("house_pet", () -> HousePet.INSTANCE);
         ITEMS.register("illuminati_pet", () -> IlluminatiPet.INSTANCE);
         ITEMS.register("irongolem_pet", () -> IronGolemPet.INSTANCE);
         ITEMS.register("loot_pet", () -> LootPet.INSTANCE);

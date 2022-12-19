@@ -63,7 +63,7 @@ public class DoubleChestPet extends InventoryPet {
                     if (!double_chest_pet.contains("content")) double_chest_pet.put("content", new CompoundTag());
                     ListTag content = double_chest_pet.getList("content", ListTag.TAG_COMPOUND);
                     for (int i = 0; i < 3 * 9; i++) {
-                        CompoundTag item = (CompoundTag) content.get(i);
+                        CompoundTag item = content.getCompound(i);
                         if (item == null) item = new CompoundTag();
                         if (item.contains("id")) {
                             ItemStack stack = new ItemStack(Item.byId(item.getInt("id")));

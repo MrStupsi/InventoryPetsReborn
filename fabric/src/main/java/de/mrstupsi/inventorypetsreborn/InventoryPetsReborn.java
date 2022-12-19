@@ -26,6 +26,7 @@ public class InventoryPetsReborn implements ModInitializer {
         EndermanPet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "enderman_pet"), new EndermanPet());
         FurnacePet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "furnace_pet"), new FurnacePet());
         GhastPet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "ghast_pet"), new GhastPet());
+        HousePet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "house_pet"), new HousePet());
         IlluminatiPet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "illuminati_pet"), new IlluminatiPet());
         IronGolemPet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "irongolem_pet"), new IronGolemPet());
         LootPet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "loot_pet"), new LootPet());
