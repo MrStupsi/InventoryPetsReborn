@@ -49,7 +49,7 @@ public class DoubleChestPet extends InventoryPet {
                 else user.getInventory().offhand.set(0, is);
             }
             if (!world.isClientSide) {
-                CompoundTag nbt = is.getTag();
+                CompoundTag nbt = is.getOrCreateTag();
                 if (!nbt.contains("double_chest_pet")) {
                     nbt.put("double_chest_pet", new CompoundTag());
                 }
@@ -79,7 +79,7 @@ public class DoubleChestPet extends InventoryPet {
                         @Override
                         public void dataChanged(AbstractContainerMenu p_150524_, int p_150525_, int p_150526_) {
                             ItemStack is2 = hand == InteractionHand.MAIN_HAND ? user.getMainHandItem() : user.getOffhandItem();
-                            CompoundTag nbt2 = is2.getTag();
+                            CompoundTag nbt2 = is2.getOrCreateTag();
                             if (!nbt2.contains("double_chest_pet")) return;
                             CompoundTag double_chest_pet2 = nbt2.getCompound("double_chest_pet");
                             if (!double_chest_pet2.contains("id")) return;
@@ -92,7 +92,7 @@ public class DoubleChestPet extends InventoryPet {
                                     item.putInt("id", Item.getId(stack.getItem()));
                                     item.putInt("damage", stack.getDamageValue());
                                     item.putInt("count", stack.getCount());
-                                    item.put("tag", stack.getTag());
+                                    item.put("tag", stack.getOrCreateTag());
                                     content.set(i, item);
                                 }
                                 double_chest_pet2.put("content", content);
