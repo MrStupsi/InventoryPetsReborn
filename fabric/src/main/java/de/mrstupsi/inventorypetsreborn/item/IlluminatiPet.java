@@ -38,7 +38,7 @@ public class IlluminatiPet extends InventoryPet {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack is = hand == Hand.MAIN_HAND ? user.getMainHandStack() : user.getOffHandStack();
         if (InventoryPet.isActive(is)) {
-            NbtCompound nbt = is.getNbt();
+            NbtCompound nbt = is.getOrCreateNbt();
             if (!nbt.contains("illuminati_pet")) nbt.put("illuminati_pet", new NbtCompound());
             NbtCompound illuminati_pet = nbt.getCompound("illuminati_pet");
             if (!illuminati_pet.contains("last_item")) illuminati_pet.putLong("last_item", 0);
@@ -75,7 +75,7 @@ public class IlluminatiPet extends InventoryPet {
         super.inventoryTick(stack, world, entity, slot, selected);
         if (entity instanceof PlayerEntity) {
             PlayerEntity p = (PlayerEntity) entity;
-            NbtCompound nbt = stack.getNbt();
+            NbtCompound nbt = stack.getOrCreateNbt();
             if (nbt.contains("illuminati_pet")) {
                 NbtCompound illuminati_pet = nbt.getCompound("illuminati_pet");
                 if (illuminati_pet.contains("last_item")) {
