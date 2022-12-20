@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "inventorypets:items/wolf_new"
+        "layer0": "inventorypetsreborn:items/wolf_pet"
     },
     "display": {
         "ground": {
