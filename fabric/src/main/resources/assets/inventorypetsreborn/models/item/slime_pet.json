@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "inventorypets:items/slime_new"
+        "layer0": "inventorypetsreborn:items/slime_pet"
     },
     "display": {
         "ground": {

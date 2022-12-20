@@ -49,6 +49,7 @@ public class InventoryPetsReborn {
         ITEMS.register("pixie_pet", () -> PixiePet.INSTANCE);
         ITEMS.register("sheep_pet", () -> SheepPet.INSTANCE);
         ITEMS.register("silverfish_pet", () -> SilverfishPet.INSTANCE);
+        ITEMS.register("slime_pet", () -> SlimePet.INSTANCE);
         ITEMS.register("spider_pet", () -> SpiderPet.INSTANCE);
         ITEMS.register("squid_pet", () -> SquidPet.INSTANCE);
         ITEMS.register("coal_nugget", () -> CoalNugget.INSTANCE);

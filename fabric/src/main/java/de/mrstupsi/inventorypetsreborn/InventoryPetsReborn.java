@@ -37,6 +37,7 @@ public class InventoryPetsReborn implements ModInitializer {
         PixiePet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "pixie_pet"), new PixiePet());
         SheepPet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "sheep_pet"), new SheepPet());
         SilverfishPet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "silverfish_pet"), new SilverfishPet());
+        SlimePet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "slime_pet"), new SlimePet());
         SpiderPet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "spider_pet"), new SpiderPet());
         SquidPet.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "squid_pet"), new SquidPet());
         CoalNugget.INSTANCE = Registry.register(Registry.ITEM, new Identifier("inventorypetsreborn", "coal_nugget"), new CoalNugget());

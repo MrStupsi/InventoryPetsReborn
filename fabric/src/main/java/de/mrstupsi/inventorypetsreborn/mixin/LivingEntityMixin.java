@@ -1,15 +1,13 @@
 package de.mrstupsi.inventorypetsreborn.mixin;
 
-import de.mrstupsi.inventorypetsreborn.item.CowPet;
-import de.mrstupsi.inventorypetsreborn.item.InventoryPet;
-import de.mrstupsi.inventorypetsreborn.item.PigPet;
-import de.mrstupsi.inventorypetsreborn.item.SpiderPet;
+import de.mrstupsi.inventorypetsreborn.item.*;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.TrapdoorBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -17,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.stat.Stats;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -25,6 +24,9 @@ import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
@@ -43,6 +45,10 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow protected abstract void applyFoodEffects(ItemStack stack, World world, LivingEntity targetEntity);
 
     @Shadow public abstract SoundEvent getEatSound(ItemStack stack);
+
+    @Shadow public abstract void setHealth(float health);
+
+    @Shadow public abstract float getMaxHealth();
 
     /**
      * @author
@@ -107,5 +113,32 @@ public abstract class LivingEntityMixin extends Entity {
             }
         }
         return true;
+    }
+
+    @Inject(at = @At("RETURN"), method = "tryUseTotem", cancellable = true)
+    public void checkTotemDeathProtection(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
+        if (checkSlimePetDeathProtection(source)) {
+            cir.setReturnValue(true);
+        }
+    }
+
+    private boolean checkSlimePetDeathProtection(DamageSource source) {
+        if (source.bypassesProtection()) {
+            return false;
+        } else {
+            int activePet = InventoryPet.getActivePet(this, SlimePet.INSTANCE);
+            if (activePet != -1) {
+                PlayerEntity p = (PlayerEntity) ((Object) this);
+                if (!p.isCreative() && !isSpectator()) {
+                    ItemStack is = p.getInventory().getStack(activePet);
+                    p.increaseStat(Stats.USED.getOrCreateStat(SlimePet.INSTANCE), 1);
+                    setHealth(getMaxHealth());
+                    is.setDamage(Math.min(Math.max(is.getDamage() + 1, 0), is.getMaxDamage()));
+                    p.getInventory().setStack(activePet, is);
+                    world.sendEntityStatus(this, (byte) 99);
+                    return true;
+                } else return false;
+            } else return false;
+        }
     }
 }

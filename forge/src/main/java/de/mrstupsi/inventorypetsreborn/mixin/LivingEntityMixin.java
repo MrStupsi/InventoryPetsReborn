@@ -1,12 +1,12 @@
 package de.mrstupsi.inventorypetsreborn.mixin;
 
-import de.mrstupsi.inventorypetsreborn.item.CowPet;
-import de.mrstupsi.inventorypetsreborn.item.InventoryPet;
-import de.mrstupsi.inventorypetsreborn.item.PigPet;
-import de.mrstupsi.inventorypetsreborn.item.SpiderPet;
+import de.mrstupsi.inventorypetsreborn.item.*;
 import net.minecraft.core.BlockPos;
+import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -22,6 +22,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
@@ -32,6 +35,14 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow public abstract MobType getMobType();
 
     @Shadow private Optional<BlockPos> lastClimbablePos;
+
+    @Shadow public abstract ItemStack getItemInHand(InteractionHand p_21121_);
+
+    @Shadow public abstract void setHealth(float p_21154_);
+
+    @Shadow public abstract float getMaxHealth();
+
+    @Shadow protected abstract boolean checkTotemDeathProtection(DamageSource p_21263_);
 
     public LivingEntityMixin(EntityType<?> type, Level world) {
         super(type, world);
@@ -93,5 +104,32 @@ public abstract class LivingEntityMixin extends Entity {
             }
         }
         return true;
+    }
+
+    @Inject(at = @At("RETURN"), method = "checkTotemDeathProtection", cancellable = true)
+    public void checkTotemDeathProtection(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
+        if (checkSlimePetDeathProtection(source)) {
+            cir.setReturnValue(true);
+        }
+    }
+
+    private boolean checkSlimePetDeathProtection(DamageSource source) {
+        if (source.isBypassInvul()) {
+            return false;
+        } else {
+            int activePet = InventoryPet.getActivePet(this, SlimePet.INSTANCE);
+            if (activePet != -1) {
+                Player p = (Player) ((Object) this);
+                if (!p.isCreative() && !isSpectator()) {
+                    ItemStack is = p.getInventory().getItem(activePet);
+                    p.awardStat(Stats.ITEM_USED.get(SlimePet.INSTANCE), 1);
+                    setHealth(getMaxHealth());
+                    is.setDamageValue(Math.min(Math.max(is.getDamageValue() + 1, 0), is.getMaxDamage()));
+                    p.getInventory().setItem(activePet, is);
+                    level.broadcastEntityEvent(this, (byte) 99);
+                    return true;
+                } else return false;
+            } else return false;
+        }
     }
 }

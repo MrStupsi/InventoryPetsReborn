@@ -3,7 +3,8 @@
     {
       "rolls": 1,
       "entries": [
-        {"type": "minecraft:item", "name": "inventorypetsreborn:illuminati_pet"}
+        {"type": "minecraft:item", "name": "inventorypetsreborn:illuminati_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:slime_pet"}
       ]
     }
   ]

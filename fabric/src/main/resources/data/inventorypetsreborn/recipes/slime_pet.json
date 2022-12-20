@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "inventorypetsreborn:slime_pet"
+  },
+  "pattern": [
+    "OFO",
+    "ODO",
+    "OGO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "D": {
+      "item": "minecraft:nether_star"
+    },
+    "F": {
+      "item": "minecraft:golden_apple"
+    },
+    "G": {
+      "item": "minecraft:diamond"
+    },
+    "O": {
+      "item": "inventorypetsreborn:emerald_nugget"
+    }
+  }
+}
