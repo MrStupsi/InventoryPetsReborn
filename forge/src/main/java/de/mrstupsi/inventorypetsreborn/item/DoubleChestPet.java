@@ -64,7 +64,6 @@ public class DoubleChestPet extends InventoryPet {
                     ListTag content = double_chest_pet.getList("content", ListTag.TAG_COMPOUND);
                     for (int i = 0; i < 3 * 9; i++) {
                         CompoundTag item = content.getCompound(i);
-                        if (item == null) item = new CompoundTag();
                         if (item.contains("id")) {
                             ItemStack stack = new ItemStack(Item.byId(item.getInt("id")));
                             stack.setDamageValue(item.getInt("damage"));
@@ -74,10 +73,7 @@ public class DoubleChestPet extends InventoryPet {
                     }
                     inv.addSlotListener(new ContainerListener() {
                         @Override
-                        public void slotChanged(AbstractContainerMenu p_39315_, int p_39316_, ItemStack p_39317_) {}
-
-                        @Override
-                        public void dataChanged(AbstractContainerMenu p_150524_, int p_150525_, int p_150526_) {
+                        public void slotChanged(AbstractContainerMenu p_39315_, int p_39316_, ItemStack p_39317_) {
                             ItemStack is2 = hand == InteractionHand.MAIN_HAND ? user.getMainHandItem() : user.getOffhandItem();
                             CompoundTag nbt2 = is2.getOrCreateTag();
                             if (!nbt2.contains("double_chest_pet")) return;
@@ -93,7 +89,7 @@ public class DoubleChestPet extends InventoryPet {
                                     item.putInt("damage", stack.getDamageValue());
                                     item.putInt("count", stack.getCount());
                                     item.put("tag", stack.getOrCreateTag());
-                                    content.set(i, item);
+                                    content.add(item);
                                 }
                                 double_chest_pet2.put("content", content);
                                 nbt2.put("double_chest_pet", double_chest_pet2);
@@ -102,6 +98,9 @@ public class DoubleChestPet extends InventoryPet {
                                 else user.getInventory().offhand.set(0, is2);
                             }
                         }
+
+                        @Override
+                        public void dataChanged(AbstractContainerMenu p_150524_, int p_150525_, int p_150526_) {}
                     });
                     return inv;
                 }, Component.translatable("item.inventorypetsreborn.doublechest_pet")));
