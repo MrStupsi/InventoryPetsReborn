@@ -10,7 +10,8 @@
         {"type": "minecraft:item", "name": "inventorypetsreborn:mooshroom_pet"},
         {"type": "minecraft:item", "name": "inventorypetsreborn:pig_pet"},
         {"type": "minecraft:item", "name": "inventorypetsreborn:sheep_pet"},
-        {"type": "minecraft:item", "name": "inventorypetsreborn:squid_pet"}
+        {"type": "minecraft:item", "name": "inventorypetsreborn:squid_pet"},
+        {"type": "minecraft:item", "name": "inventorypetsreborn:wolf_pet"}
       ]
     }
   ]

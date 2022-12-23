@@ -1,18 +1,14 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {"item":  "inventorypetsreborn:obsidian_nugget"},
-        {"item":  "inventorypetsreborn:obsidian_nugget"},
-        {"item":  "inventorypetsreborn:obsidian_nugget"},
-        {"item":  "inventorypetsreborn:obsidian_nugget"},
-        {"item":  "inventorypetsreborn:obsidian_nugget"},
-        {"item":  "inventorypetsreborn:obsidian_nugget"},
-        {"item":  "inventorypetsreborn:obsidian_nugget"},
-        {"item":  "inventorypetsreborn:obsidian_nugget"},
-        {"item":  "inventorypetsreborn:obsidian_nugget"}
-    ],
     "result": {
-        "item": "minecraft:obsidian",
-        "count": 1
+        "item": "minecraft:obsidian"
+    },
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "#": {"item": "inventorypetsreborn:obsidian_nugget"}
     }
 }

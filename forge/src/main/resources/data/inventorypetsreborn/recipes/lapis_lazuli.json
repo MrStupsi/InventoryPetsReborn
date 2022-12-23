@@ -1,18 +1,14 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {"item":  "inventorypetsreborn:lapis_nugget"},
-        {"item":  "inventorypetsreborn:lapis_nugget"},
-        {"item":  "inventorypetsreborn:lapis_nugget"},
-        {"item":  "inventorypetsreborn:lapis_nugget"},
-        {"item":  "inventorypetsreborn:lapis_nugget"},
-        {"item":  "inventorypetsreborn:lapis_nugget"},
-        {"item":  "inventorypetsreborn:lapis_nugget"},
-        {"item":  "inventorypetsreborn:lapis_nugget"},
-        {"item":  "inventorypetsreborn:lapis_nugget"}
-    ],
     "result": {
-        "item": "minecraft:lapis_lazuli",
-        "count": 1
+        "item": "minecraft:lapis_lazuli"
+    },
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "#": {"item": "inventorypetsreborn:lapis_nugget"}
     }
 }

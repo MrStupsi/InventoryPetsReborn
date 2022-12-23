@@ -1,7 +1,7 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {"item":  "minecraft:emerald"}
+        {"item": "minecraft:emerald"}
     ],
     "result": {
         "item": "inventorypetsreborn:emerald_nugget",

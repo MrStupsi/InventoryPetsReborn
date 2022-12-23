@@ -34,7 +34,7 @@ public abstract class TreeFeatureMixin {
     @Inject(at = @At("HEAD"), method = "doPlace", cancellable = true)
     private void doPlace(WorldGenLevel world, RandomSource rand, BlockPos pos, BiConsumer<BlockPos, BlockState> p_225261_, BiConsumer<BlockPos, BlockState> p_225262_, BiConsumer<BlockPos, BlockState> p_225263_, TreeConfiguration config, CallbackInfoReturnable<Boolean> cir) {
         if (config.trunkPlacer instanceof StraightTrunkPlacer) {
-            if (r.nextInt(50) == 0) cir.cancel();
+            if (r.nextInt(80) == 0) cir.cancel();
             else return;
         } else return;
         int i = config.trunkPlacer.getTreeHeight(rand);

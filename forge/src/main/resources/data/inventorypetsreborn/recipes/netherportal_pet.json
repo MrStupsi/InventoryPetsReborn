@@ -1,6 +1,6 @@
 {
   "result": {
-    "item": "inventorypets:pet_nether_portal"
+    "item": "inventorypetsreborn:netherportal_pet"
   },
   "pattern": [
     "OFO",
@@ -19,7 +19,7 @@
       "item": "minecraft:gold_ingot"
     },
     "O": {
-     "item": "inventorypets:nugget_obsidian"
+     "item": "inventorypetsreborn:obsidian_pet"
     }
   }
 }

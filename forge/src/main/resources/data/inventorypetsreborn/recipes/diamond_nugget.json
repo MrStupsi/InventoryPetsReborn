@@ -1,7 +1,7 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {"item":  "minecraft:diamond"}
+        {"item": "minecraft:diamond"}
     ],
     "result": {
         "item": "inventorypetsreborn:diamond_nugget",

@@ -1,37 +1,31 @@
 package de.mrstupsi.inventorypetsreborn.item;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.Mth;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Random;
 
-public class EndermanPet extends InventoryPet {
-    public static EndermanPet INSTANCE = new EndermanPet();
+public class NetherPortalPet extends InventoryPet {
+    public static NetherPortalPet INSTANCE = new NetherPortalPet();
 
-    public EndermanPet() {
+    public NetherPortalPet() {
         super(
-                new Properties().rarity(Rarity.COMMON).durability(20),
-                4, 8,
-                PetType.MOB,
-                ObsidianNugget.INSTANCE
+                new Properties().rarity(Rarity.COMMON).durability(10),
+                3, 4,
+                PetType.NEUTRAL,
+                Items.QUARTZ
         );
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override
@@ -39,11 +33,21 @@ public class EndermanPet extends InventoryPet {
         ItemStack is = hand == InteractionHand.MAIN_HAND ? user.getMainHandItem() : user.getOffhandItem();
         if (InventoryPet.isActive(is)) {
             if (!user.isCreative() && !user.isSpectator()) {
-                is.setDamageValue(Math.min(Math.max(is.getDamageValue() + 5, 0), is.getMaxDamage()));
+                is.setDamageValue(Math.min(Math.max(is.getDamageValue() + 2, 0), is.getMaxDamage()));
                 if (hand == InteractionHand.MAIN_HAND) user.getInventory().setItem(user.getInventory().selected, is);
                 else user.getInventory().offhand.set(0, is);
             }
-            if (!world.isClientSide) teleport(user);
+            if (!world.isClientSide) {
+                MinecraftServer server = world.getServer();
+                ResourceKey<Level> registryKey = world.dimension() == Level.NETHER ? Level.OVERWORLD : Level.NETHER;
+                ServerLevel world2 = server.getLevel(registryKey);
+                if (world2 != null && server.isNetherEnabled() && !user.isPassenger()) {
+                    world.getProfiler().push("portal");
+                    user.setPortalCooldown();
+                    user.changeDimension(world2);
+                    world.getProfiler().pop();
+                }
+            }
             return InteractionResultHolder.success(is);
         }
         return super.use(world, user, hand);
@@ -51,52 +55,8 @@ public class EndermanPet extends InventoryPet {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
-        tooltip.add(Component.translatable("tooltip.enderman.teleport"));
-        tooltip.add(Component.translatable("tooltip.enderman.autoteleport"));
-        tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.obsidian_nugget")));
+        tooltip.add(Component.translatable("tooltip.netherportal.switchdimension"));
+        tooltip.add(Component.translatable("tooltip.favoritefood").append(Component.translatable("tooltip.quartz")));
         tooltip.add(getType().getTooltip());
-    }
-
-    private boolean teleport(Player p) {
-        double x = p.getX();
-        double y = p.getY();
-        double z = p.getZ();
-        Random r = new Random();
-        Level w = p.level;
-        for (int i = 0; i < 16; ++i) {
-            double x2 = p.getX() + (r.nextDouble() - 0.5) * 16.0;
-            double y2 = Mth.clamp(
-                    p.getY() + r.nextInt(16) - 8,
-                    w.getMinBuildHeight(),
-                    w.getMinBuildHeight() + ((ServerLevel) w).getLogicalHeight() - 1
-            );
-            double z2 = p.getZ() + (r.nextDouble() - 0.5) * 16.0;
-            if (p.isVehicle()) p.stopRiding();
-            if (p.randomTeleport(x2, y2, z2, true)) {
-                w.playSound(null, x, y, z, SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 1.0F, 1.0F);
-                p.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
-                return true;
-            }
-
-        }
-        return false;
-    }
-
-    @SubscribeEvent
-    public void onHurt(LivingHurtEvent e) {
-        if (e.getEntity() instanceof Player) {
-            Player p = (Player) e.getEntity();
-            if (p.getHealth() - e.getAmount() <= p.getMaxHealth() * 0.25) {
-                int activePet = InventoryPet.getActivePet(p, this);
-                if (activePet != -1) {
-                    if (!p.isCreative() && !p.isSpectator()) {
-                        ItemStack is = p.getInventory().getItem(activePet);
-                        is.setDamageValue(Math.min(Math.max(is.getDamageValue() + 2, 0), is.getMaxDamage()));
-                        p.getInventory().setItem(activePet, is);
-                    }
-                    teleport(p);
-                }
-            }
-        }
     }
 }

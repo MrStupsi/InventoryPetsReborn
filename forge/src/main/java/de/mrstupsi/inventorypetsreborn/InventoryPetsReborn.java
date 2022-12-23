@@ -45,6 +45,7 @@ public class InventoryPetsReborn {
         ITEMS.register("magmacube_pet", () -> MagmaCubePet.INSTANCE);
         ITEMS.register("milka_pet", () -> MilkaPet.INSTANCE);
         ITEMS.register("mooshroom_pet", () -> MooshroomPet.INSTANCE);
+        //ITEMS.register("netherportal_pet", () -> NetherPortalPet.INSTANCE);
         ITEMS.register("pig_pet", () -> PigPet.INSTANCE);
         ITEMS.register("pixie_pet", () -> PixiePet.INSTANCE);
         ITEMS.register("sheep_pet", () -> SheepPet.INSTANCE);
@@ -59,7 +60,6 @@ public class InventoryPetsReborn {
         ITEMS.register("ender_nugget", () -> EnderNugget.INSTANCE);
         ITEMS.register("lapis_nugget", () -> LapisNugget.INSTANCE);
         ITEMS.register("obsidian_nugget", () -> ObsidianNugget.INSTANCE);
-        //FEATURES.register("cloud_dungeon", () -> null);
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
         FEATURES.register(modEventBus);

@@ -1,18 +1,14 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {"item":  "inventorypetsreborn:coal_nugget"},
-        {"item":  "inventorypetsreborn:coal_nugget"},
-        {"item":  "inventorypetsreborn:coal_nugget"},
-        {"item":  "inventorypetsreborn:coal_nugget"},
-        {"item":  "inventorypetsreborn:coal_nugget"},
-        {"item":  "inventorypetsreborn:coal_nugget"},
-        {"item":  "inventorypetsreborn:coal_nugget"},
-        {"item":  "inventorypetsreborn:coal_nugget"},
-        {"item":  "inventorypetsreborn:coal_nugget"}
-    ],
     "result": {
-        "item": "minecraft:coal",
-        "count": 1
+        "item": "minecraft:coal"
+    },
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "#": {"item": "inventorypetsreborn:coal_nugget"}
     }
 }

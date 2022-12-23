@@ -1,18 +1,14 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {"item":  "inventorypetsreborn:diamond_nugget"},
-        {"item":  "inventorypetsreborn:diamond_nugget"},
-        {"item":  "inventorypetsreborn:diamond_nugget"},
-        {"item":  "inventorypetsreborn:diamond_nugget"},
-        {"item":  "inventorypetsreborn:diamond_nugget"},
-        {"item":  "inventorypetsreborn:diamond_nugget"},
-        {"item":  "inventorypetsreborn:diamond_nugget"},
-        {"item":  "inventorypetsreborn:diamond_nugget"},
-        {"item":  "inventorypetsreborn:diamond_nugget"}
-    ],
     "result": {
-        "item": "minecraft:diamond",
-        "count": 1
+        "item": "minecraft:diamond"
+    },
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "#": {"item": "inventorypetsreborn:diamond_nugget"}
     }
 }

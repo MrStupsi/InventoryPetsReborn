@@ -6,7 +6,7 @@
         {
           "type": "minecraft:loot_table",
           "name": "inventorypetsreborn:friendly_pet",
-          "weight": 10.0
+          "weight": 15.0
         },
         {
           "type": "minecraft:loot_table",
@@ -16,12 +16,12 @@
         {
           "type": "minecraft:loot_table",
           "name": "inventorypetsreborn:mob_pet",
-          "weight": 8.0
+          "weight": 10.0
         },
         {
           "type": "minecraft:loot_table",
           "name": "inventorypetsreborn:neutral_pet",
-          "weight": 4.0
+          "weight": 5.0
         }
       ]
     },
