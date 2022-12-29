@@ -67,7 +67,7 @@ public class InventoryPetsReborn {
     }
 
     @SubscribeEvent
-    public void onTick(TickEvent event) {
+    public void onTick(TickEvent.ServerTickEvent event) {
         Tick.TICK++;
     }
 }

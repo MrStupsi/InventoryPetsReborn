@@ -34,7 +34,7 @@ public class InventoryPet extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int slot, boolean selected) {
-        if (!foods.isEmpty() && stack.getDamageValue() >= minDamageToRepair &&
+        if (!world.isClientSide && !foods.isEmpty() && stack.getDamageValue() >= minDamageToRepair &&
                 Tick.TICK % (20 * 5) == 0 &&
                 entity instanceof Player) {
             Player p = (Player) entity;
